@@ -124,8 +124,7 @@ jobs:
 
   package_and_push_frontend:
     environment:
-      imageName: udapeople_frontend
-      version: v1
+      imageName: udapeople-frontend
     # specity what will execute steps
     docker:
       - image: cimg/base:2021.04
@@ -143,7 +142,7 @@ jobs:
           command: |
             cd frontend
             docker build -t $imageName .
-            docker tag $imageName $dockerhub_username/$imageName:$version
+            docker tag $imageName $dockerhub_username/$imageName
             echo "$dockerhub_password" | docker login --username $dockerhub_username --password-stdin
             docker push $dockerhub_username/$imageName
 
