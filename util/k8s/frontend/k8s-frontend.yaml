@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udapeople-frontend-deployment
+  namespace: default
+  labels:
+    app: udapeople-frontend
+    tier: front-end
+spec:
+  selector:
+    matchLabels:
+      app: udapeople-frontend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: udapeople-frontend
+    spec:
+      containers:
+        - name: udapeople-frontend-app
+          image: udapeople-frontend
+          ports:
+            - containerPort: 3000
+              name: udapeople-frontend-port
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: udapeople-frontend-service
+  namespace: default
+spec:
+  selector:
+    app: udapeople-frontend
+  type: NodePort
+  ports:
+    - name: MYAPP
+      protocol: TCP
+      port: 3500
+      targetPort: udapeople-frontend-port
+      # If you set the `spec.type` field to `NodePort` and you want a specific port number,
+      # you can specify a value in the `spec.ports[*].nodePort` field.
+      nodePort: 31000

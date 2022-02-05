@@ -122,29 +122,29 @@ jobs:
             npm audit fix --audit-level=critical --force
             npm audit --audit-level=critical
 
-  package_and_push_frontend:
-    environment:
-      imageName: udapeople-frontend
-    # specity what will execute steps
-    docker:
-      - image: cimg/base:2021.04
-        auth:
-          # Environmental variables set from $context_name context
-          username: $dockerhub_username
-          password: $dockerhub_password
-    steps:
-      - checkout
-      - setup_remote_docker:
-          version: 19.03.13
-          docker_layer_caching: true
-      - run:
-          name: Build, tag and push udapeople frontend image
-          command: |
-            cd frontend
-            docker build -t $imageName .
-            docker tag $imageName $dockerhub_username/$imageName
-            echo "$dockerhub_password" | docker login --username $dockerhub_username --password-stdin
-            docker push $dockerhub_username/$imageName
+  # package_and_push_frontend:
+  #   environment:
+  #     imageName: udapeople-frontend
+  #   # specity what will execute steps
+  #   docker:
+  #     - image: cimg/base:2021.04
+  #       auth:
+  #         # Environmental variables set from $context_name context
+  #         username: $dockerhub_username
+  #         password: $dockerhub_password
+  #   steps:
+  #     - checkout
+  #     - setup_remote_docker:
+  #         version: 19.03.13
+  #         docker_layer_caching: true
+  #     - run:
+  #         name: Build, tag and push udapeople frontend image
+  #         command: |
+  #           cd frontend
+  #           docker build -t $imageName .
+  #           docker tag $imageName $dockerhub_username/$imageName
+  #           echo "$dockerhub_password" | docker login --username $dockerhub_username --password-stdin
+  #           docker push $dockerhub_username/$imageName
 
 workflows:
   default:
@@ -159,5 +159,5 @@ workflows:
           requires: [build-backend]
       - scan-frontend:
           requires: [build-frontend]
-      - package_and_push_frontend:
-          requires: [scan-frontend]
+      # - package_and_push_frontend:
+      #     requires: [scan-frontend]
