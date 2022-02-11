@@ -44,8 +44,8 @@ jobs:
           name: Build front-end
           command: |
             cd frontend
-            npm i
             npm install webpack-cli -g
+            npm i
             npm run build
       - save_cache:
           paths: [frontend/node_modules]
