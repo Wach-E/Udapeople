@@ -3,7 +3,7 @@ ENV NODE_ENV production
 # Add a work directory
 WORKDIR /app
 # Install webpack-cli globally
-RUN npm install webpack -g
+RUN npm install webpack-cli -D
 # Cache and Install dependencies
 COPY package*.json ./
 # Install app dependencies
