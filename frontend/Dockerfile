@@ -11,7 +11,7 @@ RUN npm install
 # Copy app files
 COPY . .
 # Build the app
-RUN npm run build
+RUN npm run build -y
 # Install serve
 RUN npm install serve -g 
 # Expose port
