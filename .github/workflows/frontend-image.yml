@@ -61,7 +61,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and Docker image
         run: |
-          docker build -t wache/maven-github-app:${{github.run_number}} .
+          cd frontend
+          docker build -t wache/udapeople-github-app:${{github.run_number}} .
       - name: Push Docker image
         run: |
           docker push wache/udapeople-github-app:${{github.run_number}}
