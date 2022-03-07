@@ -5,7 +5,7 @@ WORKDIR /app
 # Install app dependencies
 RUN npm install
 # Copy app files
-COPY ./frontend/dist .
+COPY ./dist/ .
 # Install serve
 RUN npm install serve -g 
 # Expose port
