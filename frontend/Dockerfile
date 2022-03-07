@@ -3,7 +3,7 @@ ENV NODE_ENV production
 # Add a work directory
 WORKDIR /app
 # Copy app files
-COPY frontend/dist/ .
+COPY dist/ .
 # Install serve
 RUN npm install serve -g 
 # Expose port
