@@ -1,6 +1,6 @@
 pipeline {
   agent any
-  stages{
+  stages {
     stage ("Setup-Frontend") {
       steps  { dir("frontend/") {
         nodejs('node-16.13.2'){
