@@ -25,7 +25,6 @@ pipeline {
         dir("frontend/") {
           nodejs('node-16.13.2'){
             sh "npm audit fix --audit-level=critical --force"
-            sh "npm audit --audit-level=critical"
           }
         } 
       }
