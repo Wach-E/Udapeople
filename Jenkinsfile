@@ -37,7 +37,7 @@ pipeline {
           sh "docker build -t $USER/udapeople-fe:$BUILD_NUMBER ."
           sh "echo $PWD | docker login -u $USER --password-stdin"
           sh "docker push $USER/udapeople-fe:$BUILD_NUMBER"
-        }
+        }}
       } 
     }
   }
