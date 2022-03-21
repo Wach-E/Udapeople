@@ -11,8 +11,8 @@
     "test:cov": "jest --coverage",
     "start": "webpack-dev-server --mode development --hot --progress --color --port 3000 --open",
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "build:prod": "webpack -p --progress --colors",
-    "build": "webpack --mode development --progress --colors",
+    "build:prod": "webpack -p --progress --color",
+    "build": "webpack --mode development --progress --color",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\""
   },
   "license": "MIT",
