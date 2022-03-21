@@ -6,7 +6,7 @@ pipeline {
         dir("frontend/") {
           nodejs('node-16.13.2'){
             sh "npm install"
-            sh "sudo npm install webpack -g"
+            sh "npm install webpack -g"
           }
         }
       }
